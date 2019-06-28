@@ -10,5 +10,10 @@ package Herencia_27_de_junio;
  * @author ITS LOJA
  */
 public class Circulo extends figura_bidimensional {
-    
+    public double calcularArea(double radio){
+        return radio*Math.pow(Math.PI, 2);
+    }
+    public double calcularPerimetro(double radio){
+        return radio*(2*Math.PI);
+    }
 }

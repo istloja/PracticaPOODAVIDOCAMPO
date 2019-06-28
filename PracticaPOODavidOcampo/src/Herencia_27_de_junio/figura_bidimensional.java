@@ -5,6 +5,8 @@
  */
 package Herencia_27_de_junio;
 
+import herencia_21_06_19.Persona;
+
 /**
  *
  * @author ITS LOJA
@@ -27,6 +29,9 @@ public class figura_bidimensional extends Figura {
 
     public void setDatos(float datos) {
         this.datos = datos;
+    }
+    public void nombrefiguras(){
+        System.out.println("hola tenemos las figuras como: cuadrado, triangulo y circulo");
     }
     
 }

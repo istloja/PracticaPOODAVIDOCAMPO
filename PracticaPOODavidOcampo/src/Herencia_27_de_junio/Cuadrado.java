@@ -5,10 +5,18 @@
  */
 package Herencia_27_de_junio;
 
+import java.util.Scanner;
+
 /**
  *
  * @author ITS LOJA
  */
-public class Cuadrado extends figura_bidimensional{
+public class Cuadrado extends figura_bidimensional {
+ public double calcularArea(double lado){
+        return Math.pow(lado,2);
+    }
+    public double calcularPerimetro(double lado){
+        return 4*lado;
     
+    }
 }

@@ -10,5 +10,13 @@ package Herencia_27_de_junio;
  * @author ITS LOJA
  */
 public class Triangulo extends figura_bidimensional {
+     public double calcularArea(double lado1, double lado2, double lado3){
+        
+         return lado1+lado2+lado3;
+    }
+    public double calcularPerimetro(double base, double altura ){
+       
+        return (base* altura)/2;
+}
     
 }
