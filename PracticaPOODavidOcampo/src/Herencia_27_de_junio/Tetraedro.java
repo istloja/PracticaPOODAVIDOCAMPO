@@ -10,5 +10,10 @@ package Herencia_27_de_junio;
  * @author ITS LOJA
  */
 public class Tetraedro extends Figura_tridimensional{
-    
+    public double calcularArea(double Arista1){
+        return Math.sqrt(3)*Math.pow(Arista1,2);
+    }
+    public double calcularVolumen(double Arista1){
+        return (Math.sqrt(2)/12)*Math.pow(Arista1,3);
+}
 }

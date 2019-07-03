@@ -10,5 +10,10 @@ package Herencia_27_de_junio;
  * @author ITS LOJA
  */
 public class Cubo extends Figura_tridimensional {
-    
+    public double calcularAreaTotal(double Arista){
+        return 6*Math.pow(Arista,2);
+    }
+     public double calcularVolumen(double Arista){
+        return Math.pow(Arista, 3);
+    }
 }

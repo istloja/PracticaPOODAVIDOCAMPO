@@ -10,5 +10,10 @@ package Herencia_27_de_junio;
  * @author ITS LOJA
  */
 public class Esfera extends Figura_tridimensional {
-    
+    public double calcularArea(double radio){
+        return 4*Math.PI*(radio*radio);
+    }
+    public double calcularVolumen(double radio){
+        return (4/3)*Math.PI*(radio*radio*radio);
+    }
 }
