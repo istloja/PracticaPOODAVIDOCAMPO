@@ -88,6 +88,9 @@ public class Leer_Archivo {
             System.out.println("la edad mayor es: " + edadmayor + " la edad del objeto es " + jugador.getEdad());
             if (jugador.getEdad() > edadmayor) {
                 edadmayor = jugador.getEdad();
+                //System.out.println(jugador.getNombre()+" "+jugador.getApellido()+" Es mayor");
+            }else{
+                //System.out.println(jugador.getNombre() + " " + jugador.getApellido() + " Es menor ");
             }
         }
         return edadmayor;
@@ -122,7 +125,46 @@ public int menosGoles(List<Jugador>lj){
         }
         return menosgoles;
 }
-
+public int prontoDebut(List<Jugador>lj){
+    int prontodebut=lj.get(0).getAñoDebut();
+    for (Jugador jugador : lj) {
+        System.out.println("el año de debut fue: "+prontodebut+" el año del debutador es: "+jugador.getAñoDebut());
+        if (jugador.getAñoDebut()<prontodebut){
+        prontodebut=jugador.getAñoDebut();
+    }
+    }
+    return prontodebut;
+}
+public int tardioDebut(List<Jugador>lj){
+    int tardiodebut=lj.get(0).getAñoDebut();
+    for (Jugador jugador : lj) {
+        System.out.println("el año de debut fue: "+tardiodebut+" el año del debutador es: "+jugador.getAñoDebut());
+        if (jugador.getAñoDebut()>tardiodebut){
+        tardiodebut=jugador.getAñoDebut();
+    }
+    }
+    return tardiodebut;
+}
+public int masTitulos(List<Jugador>lj){
+    int mastitulos=lj.get(0).getEquipo().getNumerotitulos();
+    for (Jugador jugador : lj) {
+        System.out.println("el numero de titulos es: "+mastitulos+" el numero de titulos del objeto es "+jugador.getEquipo().getNumerotitulos());
+        if (jugador.getEquipo().getNumerotitulos()>mastitulos){
+            mastitulos=jugador.getEquipo().getNumerotitulos();
+        }
+    }
+    return mastitulos;
+}
+public int menosTitulos(List<Jugador>lj){
+    int menostitulos=lj.get(0).getEquipo().getNumerotitulos();
+    for (Jugador jugador : lj) {
+        System.out.println("el numero de titulos es: "+menostitulos+" el numero de titulos del objeto es "+jugador.getEquipo().getNumerotitulos());
+        if (jugador.getEquipo().getNumerotitulos()<menostitulos){
+            menostitulos=jugador.getEquipo().getNumerotitulos();
+        }
+    }
+    return menostitulos;
+}
     public static void main(String[] args) {
         Leer_Archivo objetos = new Leer_Archivo();
         Jugador e1 = new Jugador("Cristiano", "Ronaldo", 33, 520, 2005, new Equipo("Juventus", 20, "Turin"));
@@ -131,9 +173,9 @@ public int menosGoles(List<Jugador>lj){
         Jugador e4 = new Jugador("Eden", "hazard", 27, 590, 2010, new Equipo("Real Madrid", 40, "Madrid"));
         List<Jugador> lj = new ArrayList<>();
         lj.add(e4);
-        lj.add(e2);
         lj.add(e1);
         lj.add(e3);
+        lj.add(e2);
         System.out.println(lj.size());
         int c = lj.size();
         System.out.println(c);
@@ -149,9 +191,13 @@ public int menosGoles(List<Jugador>lj){
 //        for (Jugador jugador : b) {
 //            System.out.println(jugador.getEdad() + " años");
 //        }
-        objetos.edadMayor(lj);
-        objetos.edadMenor(lj);
-        objetos.masGoles(lj);
-        objetos.menosGoles(lj);
+//        objetos.edadMayor(lj);
+//        objetos.edadMenor(lj);
+//        objetos.masGoles(lj);
+//        objetos.menosGoles(lj);
+objetos.prontoDebut(lj);
+        objetos.tardioDebut(lj);
+        objetos.masTitulos(lj);
+        objetos.menosTitulos(lj);
     }
 }
