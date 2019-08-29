@@ -25,17 +25,27 @@ public class Jugador implements Serializable {
     private int numeroGoles;
     private int añoDebut;
     private Equipo equipo;
+    private int perdidas_de_balon;
+    private int asistencias;
+    private double km_recorridos;
+    private int pases_completados;
+    private int fallos_gol;
 
     public Jugador() {
     }
 
-    public Jugador(String nombre, String apellido, int edad, int numeroGoles, int añoDebut, Equipo equipo) {
+    public Jugador(String nombre, String apellido, int edad, int numeroGoles, int añoDebut, Equipo equipo, int perdidas_de_balon, int asistencias, double km_recorridos, int pases_completados, int fallos_gol) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;
         this.numeroGoles = numeroGoles;
         this.añoDebut = añoDebut;
         this.equipo = equipo;
+        this.perdidas_de_balon = perdidas_de_balon;
+        this.asistencias = asistencias;
+        this.km_recorridos = km_recorridos;
+        this.pases_completados = pases_completados;
+        this.fallos_gol = fallos_gol;
     }
 
     public String getNombre() {
@@ -84,6 +94,46 @@ public class Jugador implements Serializable {
 
     public void setEquipo(Equipo equipo) {
         this.equipo = equipo;
+    }
+
+    public int getPerdidas_de_balon() {
+        return perdidas_de_balon;
+    }
+
+    public void setPerdidas_de_balon(int perdidas_de_balon) {
+        this.perdidas_de_balon = perdidas_de_balon;
+    }
+
+    public int getAsistencias() {
+        return asistencias;
+    }
+
+    public void setAsistencias(int asistencias) {
+        this.asistencias = asistencias;
+    }
+
+    public double getKm_recorridos() {
+        return km_recorridos;
+    }
+
+    public void setKm_recorridos(double km_recorridos) {
+        this.km_recorridos = km_recorridos;
+    }
+
+    public int getPases_completados() {
+        return pases_completados;
+    }
+
+    public void setPases_completados(int pases_completados) {
+        this.pases_completados = pases_completados;
+    }
+
+    public int getFallos_gol() {
+        return fallos_gol;
+    }
+
+    public void setFallos_gol(int fallos_gol) {
+        this.fallos_gol = fallos_gol;
     }
 
     public void escribirObjeto(String Direccion, Jugador jugador) {
@@ -216,13 +266,164 @@ public class Jugador implements Serializable {
         return masTitulos;
     }
 
+    public Jugador Perdidas_balon(List<Jugador> lj) {
+        Jugador perdidas = lj.get(0);
+        for (Jugador jugador : lj) {
+            if (perdidas.getPerdidas_de_balon() < jugador.getPerdidas_de_balon()) {
+                perdidas = jugador;
+            }
+
+        }
+        return perdidas;
+    }
+
+    public Jugador Perdidas_Menos(List<Jugador> lj) {
+        Jugador perdidasmenos = lj.get(0);
+        for (Jugador jugador : lj) {
+            if (perdidasmenos.getPerdidas_de_balon() > jugador.getPerdidas_de_balon()) {
+                perdidasmenos = jugador;
+            }
+
+        }
+        return perdidasmenos;
+    }
+
+    public Jugador Mas_Asistencias(List<Jugador> lj) {
+        Jugador masasistencias = lj.get(0);
+        for (Jugador jugador : lj) {
+            if (masasistencias.getAsistencias() < jugador.getAsistencias()) {
+                masasistencias = jugador;
+            }
+
+        }
+        return masasistencias;
+    }
+
+    public Jugador Menos_Asistencias(List<Jugador> lj) {
+        Jugador menosasistencias = lj.get(0);
+        for (Jugador jugador : lj) {
+            if (menosasistencias.getAsistencias() > jugador.getAsistencias()) {
+                menosasistencias = jugador;
+            }
+
+        }
+        return menosasistencias;
+    }
+
+    public Jugador Mas_km(List<Jugador> lj) {
+        Jugador maskilometros = lj.get(0);
+        for (Jugador jugador : lj) {
+            if (maskilometros.getKm_recorridos() < jugador.getKm_recorridos()) {
+                maskilometros = jugador;
+            }
+
+        }
+        return maskilometros;
+    }
+
+    public Jugador Menos_km(List<Jugador> lj) {
+        Jugador menoskilometros = lj.get(0);
+        for (Jugador jugador : lj) {
+            if (menoskilometros.getKm_recorridos() > jugador.getKm_recorridos()) {
+                menoskilometros = jugador;
+            }
+
+        }
+        return menoskilometros;
+    }
+
+    public Jugador Mas_Pases(List<Jugador> lj) {
+        Jugador maspases = lj.get(0);
+        for (Jugador jugador : lj) {
+            if (maspases.getPases_completados() < jugador.getPases_completados()) {
+                maspases = jugador;
+            }
+
+        }
+        return maspases;
+    }
+
+    public Jugador Menos_Pases(List<Jugador> lj) {
+        Jugador menospases = lj.get(0);
+        for (Jugador jugador : lj) {
+            if (menospases.getPases_completados() > jugador.getPases_completados()) {
+                menospases = jugador;
+            }
+
+        }
+        return menospases;
+    }
+
+    public Jugador Mas_FallosGol(List<Jugador> lj) {
+        Jugador numfallos = lj.get(0);
+        for (Jugador jugador : lj) {
+            if (numfallos.getFallos_gol() < jugador.getFallos_gol()) {
+                numfallos = jugador;
+            }
+
+        }
+        return numfallos;
+    }
+
+    public Jugador Menos_FallosGol(List<Jugador> lj) {
+        Jugador numfallosmenos = lj.get(0);
+        for (Jugador jugador : lj) {
+            if (numfallosmenos.getFallos_gol() > jugador.getFallos_gol()) {
+                numfallosmenos = jugador;
+            }
+
+        }
+        return numfallosmenos;
+    }
+
+    public double Porcentaje_Acierto(Jugador jugador) {
+        return (jugador.getNumeroGoles() + jugador.getAsistencias()) / +jugador.getFallos_gol();
+    }
+
+    public Jugador Mas_Acierto(List<Jugador> lj) {
+        Jugador masaciertos = lj.get(0);
+        for (Jugador jugador : lj) {
+            if (Porcentaje_Acierto(jugador) > jugador.Porcentaje_Acierto(masaciertos)) {
+                masaciertos = jugador;
+            }
+        }
+        return masaciertos;
+    }
+
+    public double Porcentaje_Efectividad(Jugador jugador) {
+        return (jugador.getPases_completados()) / jugador.getPerdidas_de_balon();
+    }
+
+    public Jugador Porcentaje_masEfectividad(List<Jugador> lj) {
+        Jugador masefectividad = lj.get(0);
+        for (Jugador jugador : lj) {
+            if (masefectividad.Porcentaje_Efectividad(jugador) > jugador.Porcentaje_Efectividad(masefectividad)) {
+                masefectividad = jugador;
+            }
+        }
+        return masefectividad;
+    }
+
+    public double Efectividad_jugador(Jugador jugador) {
+        return (jugador.Porcentaje_Acierto(jugador) + jugador.Porcentaje_Efectividad(jugador) + jugador.getKm_recorridos());
+    }
+
+    public Jugador Jugador_Efectivo(List<Jugador> lj) {
+        Jugador jugadorefectivo = lj.get(0);
+        for (Jugador jugador : lj) {
+            if (jugadorefectivo.Efectividad_jugador(jugador) > jugador.Efectividad_jugador(jugadorefectivo)) {
+                jugadorefectivo = jugador;
+            }
+        }
+        return jugadorefectivo;
+    }
 
     public static void main(String[] args) {
         Jugador objetos = new Jugador();
-        Jugador e1 = new Jugador("Cristiano", "Ronaldo", 33, 520, 2005, new Equipo("Juventus", 20, "Turin"));
-        Jugador e2 = new Jugador("Leonel", "Messi", 31, 600, 2007, new Equipo("Barcelona", 30, "Barcelona"));
-        Jugador e3 = new Jugador("Neymar", "Jr", 28, 200, 2011, new Equipo("PSG", 10, "Paris"));
-        Jugador e4 = new Jugador("Eden", "hazard", 27, 590, 2010, new Equipo("Real Madrid", 40, "Madrid"));
+        Jugador e1 = new Jugador("Cristiano CR7", "Ronaldo", 33, 520, 2005, new Equipo("Juventus", 20, "Turin"), 1564, 651, 2541.45, 2541, 554);
+        Jugador e2 = new Jugador("Leonel M10", "Messi", 31, 600, 2007, new Equipo("Barcelona", 30, "Barcelona"), 546, 1854, 3453.25, 6844, 527);
+        Jugador e3 = new Jugador("Neymar Jr", "Jr", 28, 200, 2011, new Equipo("PSG", 10, "Paris"), 3245, 321, 1657.54, 541, 3571);
+        Jugador e4 = new Jugador("Eden", "Hazard", 27, 590, 2010, new Equipo("Real Madrid", 40, "Madrid"), 3571, 5451, 1335.38, 2451, 2345);
         List<Jugador> lj = new ArrayList<>();
         lj.add(e1);
         lj.add(e2);
@@ -243,11 +444,24 @@ public class Jugador implements Serializable {
 //        for (Jugador jugador : b) {
 //            System.out.println(jugador.getEdad() + " años");
 //        }
-System.out.println("la edad mayor de los jugadores es: "+objetos.edadMayor(b).getEdad());
-System.out.println("la edad menor de los jugadores es: "+objetos.edadMenor(b).getEdad());
+        System.out.println("la edad mayor de los jugadores es: " + objetos.edadMayor(b).getEdad());
+        System.out.println("la edad menor de los jugadores es: " + objetos.edadMenor(b).getEdad());
         System.out.println("el mayor numero de goles es: " + objetos.masGoles(b).getNumeroGoles());
         System.out.println("el numero menor de goles es:" + objetos.menosGoles(b).getNumeroGoles());
         System.out.println("el año de debut es: " + objetos.debutP(b).getAñoDebut());
         System.out.println("el numero de titulos maximo es: " + objetos.Titulos(b).getEquipo().getNumerotitulos());
+        System.out.println("el mayor numero de perdidas de balon  es: " + objetos.Perdidas_balon(b).getPerdidas_de_balon());
+        System.out.println("el menor numero de perdidas de balon es: " + objetos.Perdidas_Menos(b).getPerdidas_de_balon());
+        System.out.println("el mayor numero de asistencias es: " + objetos.Mas_Asistencias(b).getAsistencias());
+        System.out.println("el menor numero de asistencias es: " + objetos.Menos_Asistencias(b).getAsistencias());
+        System.out.println("el mayor numero de kilometros recorridos es: " + objetos.Mas_km(b).getKm_recorridos());
+        System.out.println("el menor numero de kilometros recorridos es: " + objetos.Menos_km(b).getKm_recorridos());
+        System.out.println("el mayor numero de pases es: " + objetos.Mas_Pases(b).getPases_completados());
+        System.out.println("el menor numero de pases  es: " + objetos.Menos_km(b).getKm_recorridos());
+        System.out.println("el mayor numero de fallos de gol es: " + objetos.Mas_FallosGol(b).getFallos_gol());
+        System.out.println("el menor numero de fallos de gol es: " + objetos.Menos_FallosGol(b).getFallos_gol());
+        System.out.println("el que tiene mas porcentaje de acierto es: "+objetos.Mas_Acierto(b).getNombre());
+        System.out.println("el que tiene mas porcentaje de efectividad es: "+objetos.Porcentaje_masEfectividad(b).getNombre());
+        System.out.println("el jugador mas efectivo es: " +objetos.Jugador_Efectivo(b).getNombre()) ;
     }
 }
